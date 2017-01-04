@@ -1,4 +1,5 @@
-PROGS=clienttest dnstest server buffertest udptest asyncudptest
+PROGS=clienttest dnstest server buffertest udptest asyncudptest asyncudptest2
+
 
 all:${PROGS}
 
@@ -26,6 +27,9 @@ udptest:${SRC}/udptest.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
 
 asyncudptest:${SRC}/asyncudptest.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+
+asyncudptest2:${SRC}/asyncudptest2.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
 
 
