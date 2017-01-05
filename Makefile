@@ -1,4 +1,16 @@
-PROGS=clienttest dnstest server buffertest udptest asyncudptest asyncudptest2
+PROGS=clienttest \
+      dnstest\
+      server\
+      buffertest\
+      udptest\
+      asyncudptest\
+      asyncudptest2\
+      tutorial_timer1\
+      tutorial_timer2\
+      tutorial_timer3\
+      tutorial_timer4\
+      tutorial_timer5
+      
 
 
 all:${PROGS}
@@ -31,6 +43,23 @@ asyncudptest:${SRC}/asyncudptest.o
 
 asyncudptest2:${SRC}/asyncudptest2.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+tutorial_timer1:${SRC}/tutorial_timer1.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+
+tutorial_timer2:${SRC}/tutorial_timer2.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+
+tutorial_timer3:${SRC}/tutorial_timer3.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+tutorial_timer4:${SRC}/tutorial_timer4.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+tutorial_timer5:${SRC}/tutorial_timer5.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+
+
+
+
+
 
 
 
