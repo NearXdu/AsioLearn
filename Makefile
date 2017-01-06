@@ -9,7 +9,8 @@ PROGS=clienttest \
       tutorial_timer2\
       tutorial_timer3\
       tutorial_timer4\
-      tutorial_timer5
+      tutorial_timer5\
+      tutorial_daytime1
       
 
 
@@ -54,6 +55,9 @@ tutorial_timer3:${SRC}/tutorial_timer3.o
 tutorial_timer4:${SRC}/tutorial_timer4.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
 tutorial_timer5:${SRC}/tutorial_timer5.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+
+tutorial_daytime1:${SRC}/tutorial_daytime1.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
 
 
