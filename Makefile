@@ -14,7 +14,8 @@ PROGS=clienttest \
       tutorial_daytime2\
       tutorial_daytime3\
       tutorial_daytime4\
-      tutorial_daytime5
+      tutorial_daytime5\
+      tutorial_daytime6
       
 
 
@@ -71,6 +72,9 @@ tutorial_daytime4:${SRC}/tutorial_daytime4.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
 tutorial_daytime5:${SRC}/tutorial_daytime5.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+tutorial_daytime6:${SRC}/tutorial_daytime6.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+
 
 
 
