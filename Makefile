@@ -15,7 +15,11 @@ PROGS=clienttest \
       tutorial_daytime3\
       tutorial_daytime4\
       tutorial_daytime5\
-      tutorial_daytime6
+      tutorial_daytime6\
+      example_allocation\
+      example_buffer
+
+
       
 
 
@@ -49,6 +53,7 @@ asyncudptest:${SRC}/asyncudptest.o
 
 asyncudptest2:${SRC}/asyncudptest2.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+
 tutorial_timer1:${SRC}/tutorial_timer1.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
 
@@ -74,6 +79,12 @@ tutorial_daytime5:${SRC}/tutorial_daytime5.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
 tutorial_daytime6:${SRC}/tutorial_daytime6.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+example_allocation:${SRC}/example_allocation.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+example_buffer:${SRC}/example_buffer.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+
+
 
 
 
