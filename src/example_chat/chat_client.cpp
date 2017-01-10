@@ -22,7 +22,7 @@ class chat_client
 
 	void write(const chat_message& msg)
 	{
-	    io_service_.post(
+	    io_service_.post(//发起异步事件
 		    [this, msg]()
 		    {
 		    bool write_in_progress = !write_msgs_.empty();

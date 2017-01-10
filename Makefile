@@ -20,6 +20,8 @@ PROGS=clienttest \
       example_buffer\
       example_chat_client\
       example_chat_server\
+      example_echo_server_sync\
+      example_echo_server_async\
 
 
       
@@ -33,7 +35,9 @@ OUTPUT=${shell pwd}/bin
 
 
 MAKE_BIN_DIR := ${shell mkdir -p $(OUTPUT) }
-MAKE_EXAMPLE_BIN_DIR := ${shell mkdir -p $(OUTPUT)/example_chat }
+MAKE_EXAMPLE_CHAT_BIN_DIR := ${shell mkdir -p $(OUTPUT)/example_chat }
+MAKE_EXAMPLE_ECHO_SYNC_BIN_DIR := ${shell mkdir -p $(OUTPUT)/example_echo_sync }
+MAKE_EXAMPLE_ECHO_ASYNC_BIN_DIR := ${shell mkdir -p $(OUTPUT)/example_echo_async }
 
 CXXFLAGS+=-g -std=c++11
 LDFLAGS+=-lboost_system -lboost_thread -lpthread
@@ -92,6 +96,13 @@ example_chat_server:${SRC}/example_chat/chat_server.o
 example_chat_client:${SRC}/example_chat/chat_client.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/example_chat/$@   $^  ${LDFLAGS}
 
+example_echo_server_sync:${SRC}/example_echo_sync/example_echo_server_sync.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/example_echo_sync/$@   $^  ${LDFLAGS}
+example_echo_server_async:${SRC}/example_echo_async/example_echo_server_async.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/example_echo_async/$@   $^  ${LDFLAGS}
+
+
+
 
 
 
@@ -103,7 +114,8 @@ example_chat_client:${SRC}/example_chat/chat_client.o
 
 
 clean:
-	@rm -rf ${OUTPUT} ${SRC}/*.o  ${SRC}/example_chat/*.o
+	@rm -rf ${OUTPUT} ${SRC}/*.o  ${SRC}/example_chat/*.o ${SRC}/example_echo_sync/*.o \
+	    ${SRC}/example_echo_async/*.o
 
 
 .PHONY: all clean
