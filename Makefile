@@ -17,7 +17,9 @@ PROGS=clienttest \
       tutorial_daytime5\
       tutorial_daytime6\
       example_allocation\
-      example_buffer
+      example_buffer\
+      example_chat_client\
+      example_chat_server\
 
 
       
@@ -31,6 +33,7 @@ OUTPUT=${shell pwd}/bin
 
 
 MAKE_BIN_DIR := ${shell mkdir -p $(OUTPUT) }
+MAKE_EXAMPLE_BIN_DIR := ${shell mkdir -p $(OUTPUT)/example_chat }
 
 CXXFLAGS+=-g -std=c++11
 LDFLAGS+=-lboost_system -lboost_thread -lpthread
@@ -83,6 +86,13 @@ example_allocation:${SRC}/example_allocation.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
 example_buffer:${SRC}/example_buffer.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/$@   $^  ${LDFLAGS}
+
+example_chat_server:${SRC}/example_chat/chat_server.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/example_chat/$@   $^  ${LDFLAGS}
+example_chat_client:${SRC}/example_chat/chat_client.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/example_chat/$@   $^  ${LDFLAGS}
+
+
 
 
 

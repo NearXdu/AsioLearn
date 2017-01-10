@@ -9,7 +9,7 @@ using namespace boost::asio;
 int main()
 {
     io_service service;
-    ip::tcp::endpoint ep( ip::address::from_string("127.0.0.1"), 8080);
+    ip::tcp::endpoint ep( ip::address::from_string("127.0.0.1"), 1024);
     ip::tcp::socket sock(service);
     sock.open(ip::tcp::v4()); 
     sock.connect(ep);
