@@ -103,7 +103,7 @@ example_chat_client:${SRC}/example_chat/chat_client.o
 
 
 clean:
-	@rm -rf ${OUTPUT} ${SRC}/*.o 
+	@rm -rf ${OUTPUT} ${SRC}/*.o  ${SRC}/example_chat/*.o
 
 
 .PHONY: all clean
