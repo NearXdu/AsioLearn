@@ -22,6 +22,7 @@ PROGS=clienttest \
       example_chat_server\
       example_echo_server_sync\
       example_echo_server_async\
+      example_http_server
 
 
       
@@ -38,6 +39,7 @@ MAKE_BIN_DIR := ${shell mkdir -p $(OUTPUT) }
 MAKE_EXAMPLE_CHAT_BIN_DIR := ${shell mkdir -p $(OUTPUT)/example_chat }
 MAKE_EXAMPLE_ECHO_SYNC_BIN_DIR := ${shell mkdir -p $(OUTPUT)/example_echo_sync }
 MAKE_EXAMPLE_ECHO_ASYNC_BIN_DIR := ${shell mkdir -p $(OUTPUT)/example_echo_async }
+MAKE_EXAMPLE_HTTP_BIN_DIR := ${shell mkdir -p $(OUTPUT)/example_http }
 
 CXXFLAGS+=-g -std=c++11
 LDFLAGS+=-lboost_system -lboost_thread -lpthread
@@ -101,10 +103,15 @@ example_echo_server_sync:${SRC}/example_echo_sync/example_echo_server_sync.o
 example_echo_server_async:${SRC}/example_echo_async/example_echo_server_async.o
 	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/example_echo_async/$@   $^  ${LDFLAGS}
 
-
-
-
-
+example_http_server:${SRC}/example_http/main.o\
+    ${SRC}/example_http/http_server.o\
+    ${SRC}/example_http/connection.o\
+    ${SRC}/example_http/request_handler.o\
+    ${SRC}/example_http/request_parser.o\
+    ${SRC}/example_http/reply.o\
+    ${SRC}/example_http/connection_manager.o\
+    ${SRC}/example_http/mime_types.o
+	@${CXX} ${CXXFLAGS}  -o ${OUTPUT}/example_http/$@   $^  ${LDFLAGS}
 
 
 
@@ -115,7 +122,8 @@ example_echo_server_async:${SRC}/example_echo_async/example_echo_server_async.o
 
 clean:
 	@rm -rf ${OUTPUT} ${SRC}/*.o  ${SRC}/example_chat/*.o ${SRC}/example_echo_sync/*.o \
-	    ${SRC}/example_echo_async/*.o
+	    ${SRC}/example_echo_async/*.o\
+	    ${SRC}/example_http/*.o
 
 
 .PHONY: all clean
